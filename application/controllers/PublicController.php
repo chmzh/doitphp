@@ -15,19 +15,8 @@
 
 class PublicController extends Controller {
 
-    protected $cookieuname = "cookie.uname";
-    protected $cookiesign = "cookie.sign";
-    protected function isLogin(){
-        
-    }
     
-    protected function saveLoginInfo($mix){
-        if(is_array($mix)){
-            foreach ($mix as $key=>$val){
-                $this->setCookie($key, $val);
-            }
-        }
-    }
+
     
 	/**
 	 * 登陆验证
