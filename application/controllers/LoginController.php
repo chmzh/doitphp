@@ -20,6 +20,7 @@ class LoginController extends PublicController {
     }
     
 	public function indexAction() {
+	    Auth::isLogin();
 	    $this->display();
 	}
 	

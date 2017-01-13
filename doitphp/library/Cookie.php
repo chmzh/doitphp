@@ -45,7 +45,6 @@ class Cookie {
         $options = Configure::get('cookie');
         $this->_options = ($options && is_array($options)) ? $options : array();
         $this->_options += $this->_defaultOptions;
-
         return true;
     }
 
@@ -68,7 +67,7 @@ class Cookie {
         if (!isset($_COOKIE[$cookieName])) {
             return $default;
         }
-
+        
         if ($this->_options['secretkey']) {
             $value = Doit::singleton('Encrypt')->decode($_COOKIE[$cookieName], $this->_options['secretkey']);
             return unserialize($value);

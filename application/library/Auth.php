@@ -1,7 +1,7 @@
 <?php
 class Auth{
-    const cookieuname = "cookie.uname";
-    const cookiesign = "cookie.sign";
+    const cookieuname = "uname";
+    const cookiesign = "sign";
     
     
     public static function isLogin(){
