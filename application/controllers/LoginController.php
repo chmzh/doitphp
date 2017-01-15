@@ -55,9 +55,7 @@ class LoginController extends PublicController {
 	public function init() {
 	
 	    //assign params
-	    $this->assign(array(
-	        'baseUrl'  => self::getBaseUrl()
-	    ));
+	    
 	
 	    return true;
 	}

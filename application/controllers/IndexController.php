@@ -9,7 +9,7 @@
  * @since 1.0
  */
 
-class IndexController extends Controller {
+class IndexController extends PublicController {
 
     /**
      * 首页
@@ -18,8 +18,10 @@ class IndexController extends Controller {
      * @return void
      */
     public function indexAction() {
-
-        echo 'hello world';
+		$user = $this->model("User");
+		$u = $user->getOne("uname='cndw'");
+		$this->_getPowerMenu();
+        $this->display();
     }
 
 }

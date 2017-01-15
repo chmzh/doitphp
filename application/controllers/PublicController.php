@@ -16,6 +16,27 @@
 class PublicController extends Controller {
 
     
+	protected function _getPowerMenu(){
+		$userPowerModel = $this->model("UserPower");
+		$menuModel =  $this->model("Menu");
+		
+		$powers = $userPowerModel->getOne("userid=1");
+		$power = $powers['powers'];
+		
+		$menus = $menuModel->getAll("id in($power)");
+		$parentids = [];
+		foreach ($menus as $k=>$v){
+			if(!array_key_exists($v['parentid'], $parentids)){
+				array_push($parentids, $v['parentid']);
+			}
+		}
+		
+		$parenMenus = $menuModel->getAll("id in(".implode($parentids,",").")");
+		//echo implode($parentids,",");
+		//print_r($parenMenus);
+		$this->assign("parentMenus",$parenMenus);
+		$this->assign("menus",$menus);
+	}
 
     
 	/**
@@ -60,7 +81,9 @@ class PublicController extends Controller {
 // 		'baseImageUrl'  => $this->getAssetUrl('images'),
 // 		'baseScriptUrl' => $this->getAssetUrl('js'),
 // 		));
-
+		$this->assign(array(
+				'baseUrl'  => self::getBaseUrl()
+		));
 		return true;
 	}
 
