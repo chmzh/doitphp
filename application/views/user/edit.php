@@ -1,4 +1,4 @@
-#parse ( "header.html" )
+<?php $this->widget("Header");?>
 
 <body>
 
@@ -12,7 +12,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" action="admin/user/edit.do" method="post">
+                                    <form role="form" action="/user/edit.do" method="post">
                                     	<input type="hidden" name="id" value="$user.getId()">
                                         <div class="form-group">
                                             用户账号:$user.getUname()

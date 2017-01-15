@@ -6,7 +6,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                           用户管理 <a href="admin/user/add">add</a>
+                           用户管理 <a href="/user/add">add</a>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -29,7 +29,7 @@
                                             <td>$user.getUname()</td>
                                             <td>#if($user.isEnabled()==true) 是 #else 否 #end</td>
                                            	<td></td>
-                                            <td class="center"><a href="admin/user/edit?id=$user.getId()">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="admin/user/power?userid=$user.getId()&produceid=0">权限管理</a></td>
+                                            <td class="center"><a href="/user/edit?id=$user.getId()">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/user/power?userid=$user.getId()&produceid=0">权限管理</a></td>
                                         </tr>
                                     #end
                                     
