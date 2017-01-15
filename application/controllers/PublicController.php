@@ -26,11 +26,13 @@ class PublicController extends Controller {
 		$menus = $menuModel->getAll("id in($power)");
 		$parentids = [];
 		foreach ($menus as $k=>$v){
-			if(!array_key_exists($v['parentid'], $parentids)){
+			//if(!array_key_exists($v['parentid'], $parentids)){
 				array_push($parentids, $v['parentid']);
-			}
+			//}
 		}
-		
+		//in_array($needle, $haystack)
+		$parentids = array_unique($parentids);
+		//print_r($parentids);
 		$parenMenus = $menuModel->getAll("id in(".implode($parentids,",").")");
 		//echo implode($parentids,",");
 		//print_r($parenMenus);
