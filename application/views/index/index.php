@@ -85,17 +85,17 @@
 								</span>
 							</div> <!-- /input-group -->
 						</li> <?php foreach ($parentMenus as $pk=>$pv){?>
-						<?php if ($parentMenus[$pk]['visible']==1){?>
+						<?php if ($pv['visible']==1){?>
 						<li><a href="javascript:;"><i
-								class="fa fa-bar-chart-o fa-fw"></i> <?php echo $parentMenus[$pk]['name'];?><span
+								class="fa fa-bar-chart-o fa-fw"></i> <?php echo $pv['name'];?><span
 								class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
 								<?php foreach ($menus as $sk=>$sv){?>
-								<?php if ($parentMenus[$pk]['id']==$menus[$sk]['parentid']){?>
-								<?php if ($menus[$sk]['visible']==1){?>
+								<?php if ($pv['id']==$sv['parentid']){?>
+								<?php if ($sv['visible']==1){?>
 								<li><a
-									href="/<?php echo $parentMenus[$pk]['model']?>/<?php echo $menus[$sk]['action']?>"
-									target="mainFrame"><?php echo $menus[$sk]['name'];?></a></li> <?php }}}?>
+									href="/<?php echo $pv['model']?>/<?php echo $sv['action']?>"
+									target="mainFrame"><?php echo $sv['name'];?></a></li> <?php }}}?>
 							</ul> <!-- /.nav-second-level --></li> <?php }}?>
 
 

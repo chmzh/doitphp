@@ -22,16 +22,15 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    
-                                    #foreach($user in $users)
+                                    <?php foreach ($datas as $k=>$v){?>
                                     	<tr class="odd gradeX">
-                                            <td>$user.getId()</td>
-                                            <td>$user.getUname()</td>
-                                            <td>#if($user.isEnabled()==true) 是 #else 否 #end</td>
-                                           	<td></td>
-                                            <td class="center"><a href="/user/edit?id=$user.getId()">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/user/power?userid=$user.getId()&produceid=0">权限管理</a></td>
+                                            <td><?php echo $v['id'];?></td>
+                                            <td><?php echo $v['uname'];?></td>
+                                            <td><?php if($v['enabled']==1){?> 是 <?php }else{?> 否 <?php }?></td>
+                                           	<td>1</td>
+                                            <td class="center"><a href="/user/edit?id=<?php echo $v['id'];?>">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/user/power?userid=<?php echo $v['id'];?>&produceid=0">权限管理</a></td>
                                         </tr>
-                                    #end
+                                    <?php }?>
                                     
                                         
                                         
@@ -41,7 +40,7 @@
                             </div>
                             <!-- /.table-responsive -->
                             
-                            <div class="row"><div class="col-sm-6"><div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate"><ul class="pagination">${pages}</ul></div></div></div>
+                            <?php echo $pagers;?>
                             
                         </div>
                         <!-- /.panel-body -->

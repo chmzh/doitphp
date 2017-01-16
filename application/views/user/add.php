@@ -12,7 +12,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" action="/user/add.do" method="post">
+                                    <form role="form" action="/user/add" method="post">
                                         <div class="form-group">
                                             <label>用户账号</label>
                                             <input class="form-control" name="uname" placeholder="用户账号">
