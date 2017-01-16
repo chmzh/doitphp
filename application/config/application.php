@@ -41,7 +41,7 @@ if (!defined('IN_DOIT')) {
 /**
  * 设置是否开启日志记录功能。true:开启；false:关闭。默认：关闭。
  */
-//$config['application']['log'] = true;
+$config['application']['log'] = true;
 
 /**
  * 自定义项目(application)目录路径的设置。注：结尾无需"/"，建议用绝对路径。
