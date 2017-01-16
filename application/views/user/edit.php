@@ -7,15 +7,16 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                           用户管理 <a href="admin/user/list">返回</a>
+                           用户管理 <a href="/user/list">返回</a>
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <form role="form" action="/user/edit" method="post">
-                                    	<input type="hidden" name="id" value="$user.getId()">
+                                    	<input type="hidden" name="id" value="<?php echo $data['id'];?>">
+                                    	<input type="hidden" name="uname" value="<?php echo $data['uname'];?>">
                                         <div class="form-group">
-                                            用户账号:$user.getUname()
+                                            用户账号:<?php echo $data['uname'];?>
                                         </div>
                                          <div class="form-group">
                                             <label>账户旧密码</label>
@@ -30,10 +31,10 @@
                                             <label>是否使用</label>
                                             
                                             <label class="radio-inline">
-                                                <input type="radio"  #if($user.isEnabled() == true)checked="" #end value="1" id="optionsRadiosInline1" name="enabled">是
+                                                <input type="radio"  <?php if($data['enabled']==1){?> checked="" <?php }?> value="1" id="optionsRadiosInline1" name="enabled">是
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" #if($user.isEnabled() == false)checked="" #end value="0" id="optionsRadiosInline2" name="enabled">否
+                                                <input type="radio" <?php if($data['enabled']==0){?> checked="" <?php }?> value="0" id="optionsRadiosInline2" name="enabled">否
                                             </label>
                                         </div>  
                                                                               

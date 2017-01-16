@@ -40,6 +40,28 @@ class PublicController extends Controller {
 		$this->assign("menus",$menus);
 	}
 
+	protected function validPower(){
+	    $powers = $this->model("UserPower")->getOne("userid=1");
+	    $power = $powers['powers'];
+	    $menus = $this->model("Menu")->getAll("id in($power)");
+	    
+	    $controller = Doit::getControllerName();
+	    $action = Doit::getActionName();
+	    if(!$menus){
+	        return false;
+	    }
+	    $bol = false;
+	    
+	    foreach ($menus as $k=>$v){
+	        if($v['model'] == $controller && $v['action']==$action){
+	            $bol = true;
+	            break;
+	        }
+	    }
+	    if(!$bol){
+	        Response::showMsg("该页不存在,请联系管理员！");
+	    }
+	}
     
 	/**
 	 * 登陆验证
@@ -72,6 +94,7 @@ class PublicController extends Controller {
 	 */
 	public function init() {
 
+	    $this->validPower();
 		//分析是否登陆
 // 		$this->_parseLogin();
 
