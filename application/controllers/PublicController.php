@@ -47,15 +47,20 @@ class PublicController extends Controller {
 	    
 	    $controller = Doit::getControllerName();
 	    $action = Doit::getActionName();
-	    if(!$menus){
-	        return false;
-	    }
-	    $bol = false;
 	    
+	    $ignor = [['ctr'=>'index','action'=>'index']];
+	    foreach ($ignor as $k=>$v){
+	        if($v['ctr'] == $controller && $v['action']==$action){
+	            return;
+	        }
+	    }
+	    if(!$menus){
+	        return;
+	    }
+	    $bol = false;	    
 	    foreach ($menus as $k=>$v){
 	        if($v['model'] == $controller && $v['action']==$action){
-	            $bol = true;
-	            break;
+	            return;
 	        }
 	    }
 	    if(!$bol){
