@@ -9,7 +9,7 @@
  * @since 1.0
  */
 
-class IndexController extends PublicController {
+class IndexController extends AuthController {
 
     /**
      * 首页

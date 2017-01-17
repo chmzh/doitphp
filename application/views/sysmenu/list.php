@@ -28,7 +28,10 @@
                                             <td><?php echo $v['id'];?></td>
                                             <td><?php echo $v['name'];?></td>
                                             <td><?php echo $v['model'];?></td>
-                                            <td><?php echo $v['action'];?></td>
+                                            <td><span id="menu_<?php echo $v['id'];?>" onclick="showmenu('<?php echo $v['id'];?>')" style="color: red;cursor:pointer">显示子菜单</span>
+                                                <br>
+                                                <span id="submenu_<?php echo $v['id'];?>"></span>
+                                            </td>
                                             <td class="center"><a href="/sysmenu/edit?id=<?php echo $v['id'];?>">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/sysmenu/add?id=<?php echo $v['id'];?>">添加子菜单</a></td>
                                         </tr>
                                     <?php }?>
@@ -59,25 +62,35 @@
 
 
     <!-- jQuery -->
-    <script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="assets/bower_components/metisMenu/dist/metisMenu.min.js"></script>
-
-
-    <!-- Custom Theme JavaScript -->
-    <script src="assets/dist/js/sb-admin-2.js"></script>
+    <script src="<?php echo $baseUrl;?>/assets/jquery/jquery-3.1.1.min.js"></script>
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
-    $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-                responsive: true
-        });
-    });
+
+    function showmenu(pid){
+        if($("#menu_"+pid).html()=='隐藏子菜单'){
+        	$("#submenu_"+pid).hide();
+        	$("#menu_"+pid).html("显示子菜单");
+        }else{
+        	$.post("/sysmenu/ajax_showmenu",
+        		    {
+      		            parentid:pid,
+        		    },
+        		        function(data,status){
+        		        if(status=='success'){
+        		        	jsonResp=eval("("+data+")");
+        		        	datas = jsonResp['data'];
+        		        	$("#submenu_"+pid).show();
+        		        	$("#submenu_"+pid).empty();
+        		        	for(var i = 0; i < datas.length; i++){
+        		        	    $("#submenu_"+pid).append("<span>"+datas[i].name+"</span>&nbsp;&nbsp;&nbsp&nbsp;")
+            		        }
+        		        	$("#menu_"+pid).html("隐藏子菜单");
+            		    }
+        		    });
+        }
+    	
+    }
     </script>
 
 </body>

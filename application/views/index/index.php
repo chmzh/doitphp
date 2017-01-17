@@ -145,12 +145,12 @@
 	<!-- /#wrapper -->
 
 	<!-- jQuery -->
-	<script src="<?php echo $baseUrl;?>/assets/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="<?php echo $baseUrl;?>/assets/jquery/jquery-3.1.1.min.js"></script>
 
 
 	<!-- Bootstrap Core JavaScript -->
 	<script
-		src="<?php echo $baseUrl;?>/assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		src="<?php echo $baseUrl;?>/assets/bootstrap/dist/js/bootstrap.min.js"></script>
 
 	<!-- Metis Menu Plugin JavaScript -->
 	<script src="<?php echo $baseUrl;?>/assets/bower_components/metisMenu/dist/metisMenu.min.js"></script>
@@ -166,18 +166,18 @@
 				.ready(
 						function() {
 							$('#page-wrapper').css("margin-left",
-									$('.sidebar-nav').width() + "px");
+									$('.sidebar-nav').width() );
 							$('#page-wrapper').css(
 									"width",
 									($(window).width()
 											- $('.sidebar-nav').width() - 3)
-											+ "px");
+											);
 							$('#page-wrapper')
 									.css(
 											"height",
 											($(window).height() - $('.navbar')
 													.height())
-													+ "px");
+													);
 
 							$("#allgames").hover(function() {
 								$("#games").show();
@@ -190,6 +190,8 @@
 							}, function() {
 								$(this).hide();
 							});
+
+							
 						});
 		
 	</script>

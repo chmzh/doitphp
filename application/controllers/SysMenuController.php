@@ -119,16 +119,43 @@ class SysMenuController extends FormController {
 
     protected function doEdit()
     {
-        // TODO Auto-generated method stub
+        $id = $this->post("id");
+        $parentid = $this->post("parentid");
+        $name = $this->post("name");
+        $model = $this->post("model");
+        $action = $this->post("action");
+        $visible = $this->post("visible");
+        $ctype = $this->post("ctype");
+        $datas['parentid'] = $parentid;
+        $datas['name'] = $name;
+        $datas['model'] = $model;
+        $datas['action'] = $action;
+        $datas['visible'] = $visible==1?true:false;
+        $datas['ctype'] = $ctype;
+        
+        $r = $this->menuDao->update($datas,"id=$id");
+        if($r){
+            Response::showMsg("操作成功",$this->createUrl("sysmenu/add"));
+        }else{
+            Response::showMsg("操作失败",$this->createUrl("sysmenu/add"));
+        }
         
     }
 
 
     protected function editForm()
     {
+        $id = $this->get("id");
+        $menu = $this->menuDao->getOne("id=$id");
+        $this->assign("menu",$menu);
         $this->display();
         
     }
 
+    public function ajax_showmenuAction(){
+        $parentid = $this->post("parentid");
+        $subMenus = $this->menuDao->getAll("parentid=$parentid");
+        $this->ajax(true,"",$subMenus);
+    }
 
 }

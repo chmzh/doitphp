@@ -11,7 +11,7 @@
     <title>SB Admin 2 - Bootstrap Admin Theme</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="<?php echo $baseUrl;?>/assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo $baseUrl;?>/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<?php echo $baseUrl;?>/assets/bower_components/bootstrap-datepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
     <link href="<?php echo $baseUrl;?>/assets/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
