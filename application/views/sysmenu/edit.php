@@ -35,10 +35,10 @@
                                             <label>是否在左边显示菜单</label>
                                             
                                             <label class="radio-inline">
-                                                <input type="radio" value="1" id="optionsRadiosInline1" name="visible" <?php if($menu['visiable']==1){?> checked="checked" <?php }?>>是
+                                                <input type="radio" value="1" id="optionsRadiosInline1" name="visible" <?php if($menu['visible']==1){?> checked="checked" <?php }?>>是
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" value="0" id="optionsRadiosInline2" name="visible" <?php if($menu['visiable']==0){?> checked="checked" <?php }?>>否
+                                                <input type="radio" value="0" id="optionsRadiosInline2" name="visible" <?php if($menu['visible']==0){?> checked="checked" <?php }?>>否
                                             </label>
                                         </div>
                                          <label>菜单类型</label>

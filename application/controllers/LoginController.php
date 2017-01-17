@@ -1,13 +1,5 @@
 <?php
-/**
- * 
- *
- * @author 
- * @copyright Copyright (C)  All rights reserved.
- * @version $Id: UserController.php 1.0 2017-01-13 11:22:34Z  $
- * @package Controller
- * @since 1.0
- */
+
 
 class LoginController extends Controller {
 

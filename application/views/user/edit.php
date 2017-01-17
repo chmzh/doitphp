@@ -31,10 +31,10 @@
                                             <label>是否使用</label>
                                             
                                             <label class="radio-inline">
-                                                <input type="radio"  <?php if($data['enabled']==1){?> checked="" <?php }?> value="1" id="optionsRadiosInline1" name="enabled">是
+                                                <input type="radio"  <?php if($data['enabled']==1){?> checked="checked" <?php }?> value="1" id="optionsRadiosInline1" name="enabled">是
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" <?php if($data['enabled']==0){?> checked="" <?php }?> value="0" id="optionsRadiosInline2" name="enabled">否
+                                                <input type="radio" <?php if($data['enabled']==0){?> checked="checked" <?php }?> value="0" id="optionsRadiosInline2" name="enabled">否
                                             </label>
                                         </div>  
                                                                               

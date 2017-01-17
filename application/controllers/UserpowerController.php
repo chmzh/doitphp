@@ -1,13 +1,5 @@
 <?php
-/**
- * 
- *
- * @author 
- * @copyright Copyright (C)  All rights reserved.
- * @version $Id: UserpowerController.php 1.0 2017-01-13 11:26:48Z  $
- * @package Controller
- * @since 1.0
- */
+
 
 class UserpowerController extends Controller {
 
