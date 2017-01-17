@@ -6,12 +6,14 @@ class OrganizationController extends FormController {
     private $countryModel;
     private $provinceModel;
     private $cityModel;
+    private $orgtypeModel;
     public function __construct(){
         parent::__construct();
         $this->orgModel = $this->model("Organization");
         $this->provinceModel = $this->model("Province");
         $this->countryModel = $this->model("Country");
         $this->cityModel = $this->model("City");
+        $this->orgtypeModel = $this->model("OrgType");
     }
     
     public function listAction(){
@@ -23,7 +25,7 @@ class OrganizationController extends FormController {
         $countrys = $this->countryModel->getAll();
         $provinces = $this->provinceModel->getAll("countryid=".$countrys[0]['id']);
         $citys = $this->cityModel->getAll("provinceid=".$provinces[0]['id']);
-        $orgtypes = $this->orgModel->getAll();
+        $orgtypes = $this->orgtypeModel->getAll();
         $this->assign("countrys",$countrys);
         $this->assign("provinces",$provinces);
         $this->assign("citys",$citys);
@@ -52,12 +54,12 @@ class OrganizationController extends FormController {
         $origin = $this->post("origin");
         $shops = $this->post("shops");
         $content = $this->post("content");
-        $pdate = time();
+        $pdate = date('Y-m-d H:i:s',time());
         
         $datas['countryid'] = $countryid;
         $datas['provinceid'] = $provinceid;
         $datas['cityid'] = $cityid;
-        $datas['orgtypeid'] = $orgtypeid;
+        $datas['orgtypeid'] = implode($orgtypeid, ",");
         $datas['minage'] = $minage;
         $datas['maxage'] = $maxage;
         $datas['name'] = $name;
@@ -67,9 +69,9 @@ class OrganizationController extends FormController {
         $datas['content'] = $content;
         $datas['pdate'] = $pdate;
         
-        
         $datas['name'] = $name;
         $r = $this->orgModel->insert($datas,true);
+        
         if($r>0){
             Response::showMsg("操作成功",$this->createUrl("organization/list"));
         }else{

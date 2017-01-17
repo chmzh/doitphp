@@ -34,7 +34,7 @@
                                        
                                         <?php foreach ($orgtypes as $k1=>$v1){?>
 										  <label class="checkbox-inline">
-										  <input type="checkbox" name="orgtypeid[]" value="<?php echo $v['id'];?>" /><?php echo $v['name'];?>
+										  <input type="checkbox" name="orgtypeid[]" value="<?php echo $v1['id'];?>" /><?php echo $v1['name'];?>
 										</label>
 									   <?php }?>
 									

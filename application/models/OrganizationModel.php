@@ -28,7 +28,7 @@ class organizationModel extends Model {
 	 * @return array
 	 */
 	protected function tableFields() {
-		return array('`id`','`countryid`','`provinceid`','`cityid`','`orgtypeid`','`minage`','`maxage`','`name`','`startDate`','`origin`','`shops`','`content`','`pdate`');
+		return array('id','countryid','provinceid','cityid','orgtypeid','minage','maxage','name','startDate','origin','shops','content','pdate');
 	}
 
 	/**
