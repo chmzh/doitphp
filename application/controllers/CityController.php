@@ -19,7 +19,7 @@ class CityController extends FormController {
     protected function addForm()
     {
         $countrys = $this->countryModel->getAll();
-        $provinces = $this->provinceModel->getAll($countrys[0]['id']);
+        $provinces = $this->provinceModel->getAll("countryid=".$countrys[0]['id']);
         $this->assign("countrys",$countrys);
         $this->assign("provinces",$provinces);
         $this->display();
