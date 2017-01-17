@@ -9,7 +9,7 @@
  * @since 1.0
  */
 
-class SysMenuController extends PublicController {
+class SysMenuController extends FormController {
     private $menuDao;
     
     public function __construct(){
@@ -50,8 +50,10 @@ class SysMenuController extends PublicController {
         $this->assign("datas",$menus);
         $this->display();
     }
-    
-    private function _addForm(){
+
+
+    protected function addForm()
+    {
         $id = $this->get("id");
         if(!$id){
             $id = 0;
@@ -72,8 +74,19 @@ class SysMenuController extends PublicController {
         $this->assign("model",$model);
         
         $this->display();
+        
     }
-    private function _doAdd(){
+
+
+    protected function delForm()
+    {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+    protected function doAdd()
+    {
         $parentid = $this->post("parentid");
         $name = $this->post("name");
         $model = $this->post("model");
@@ -93,21 +106,29 @@ class SysMenuController extends PublicController {
         }else{
             Response::showMsg("操作失败",$this->createUrl("sysmenu/add"));
         }
-    }
-    public function addAction() {
-        if(!$_POST){
-            $this->_addForm();
-        }else{
-            $this->_doAdd();
-        }
         
     }
-    
-    
-    
-    public function editAction() {
-    
-        $this->display();
+
+
+    protected function doDel()
+    {
+        // TODO Auto-generated method stub
+        
     }
+
+
+    protected function doEdit()
+    {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+    protected function editForm()
+    {
+        $this->display();
+        
+    }
+
 
 }

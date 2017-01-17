@@ -13,8 +13,7 @@
  * @since 1.0
  */
 
-class PublicController extends Controller {
-
+class AuthController extends Controller {
     
 	protected function _getPowerMenu(){
 		$userPowerModel = $this->model("UserPower");
@@ -97,7 +96,7 @@ class PublicController extends Controller {
 	 * @access public
 	 * @return boolean
 	 */
-	public function init() {
+	protected final function init() {
 
 	    $this->validPower();
 		//分析是否登陆

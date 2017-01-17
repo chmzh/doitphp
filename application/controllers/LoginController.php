@@ -9,7 +9,7 @@
  * @since 1.0
  */
 
-class LoginController extends PublicController {
+class LoginController extends Controller {
 
     private $userMode;
     
@@ -46,18 +46,6 @@ class LoginController extends PublicController {
 	
 	
 	
-	/**
-	 * 前函数(方法)
-	 *
-	 * @access public
-	 * @return boolean
-	 */
-	public function init() {
 	
-	    //assign params
-	    
-	
-	    return true;
-	}
 
 }
