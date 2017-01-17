@@ -52,6 +52,7 @@ class SchemaController extends FormController {
         }else{
             $ouserids = [];
             $userids = [];
+            $schemaid = $this->post("schemaid");
             $o = $this->post("ouserids");
             if($o){
                 $ouserids = explode(',', $o);
@@ -63,7 +64,25 @@ class SchemaController extends FormController {
             $dels = array_udiff($ouserids, $userids, 'compare');
             
             $adds = array_udiff($userids,$ouserids, 'compare');
+            $delids = [];
+            $addids = '';
             
+            $addsql = "INSERT INTO user_schema(`userid`,`schemaid`)VALUES";
+            foreach ($dels as $k=>$v){
+                array_push($delids, $v);
+            }
+            if($delids){
+                $delsql = "DELETE FROM user_schema WHERE schemaid=$schemaid AND userid in(".implode($delids, ",").")";
+                $this->schemaModel->execute($delsql);
+            }
+            foreach ($adds as $k=>$v){
+                $addids = $addids."(".$v.",".$schemaid.")";
+            }
+            if($addids){
+                $addsql = $addsql.$addids;
+                $this->schemaModel->execute($addsql);
+            }
+            Response::showMsg("操作成功",$this->createUrl("schema/list"));
         }
     }
     
