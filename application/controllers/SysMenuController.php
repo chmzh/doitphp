@@ -89,7 +89,7 @@ class SysMenuController extends FormController {
         $datas['name'] = $name;
         $datas['model'] = $model;
         $datas['action'] = $action;
-        $datas['visible'] = $visible==1?true:false;
+        $datas['visible'] = $visible;
         $datas['ctype'] = $ctype;
         
         $r = $this->menuDao->insert($datas,true);
@@ -122,7 +122,7 @@ class SysMenuController extends FormController {
         $datas['name'] = $name;
         $datas['model'] = $model;
         $datas['action'] = $action;
-        $datas['visible'] = $visible==1?true:false;
+        $datas['visible'] = $visible;
         $datas['ctype'] = $ctype;
         
         $r = $this->menuDao->update($datas,"id=$id");

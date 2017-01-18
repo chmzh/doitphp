@@ -90,7 +90,12 @@ class CityController extends FormController {
         
     }
 
-
+    public function jsonAction(){
+        $countryid = $this->post("countryid");
+        $provinceid = $this->post("provinceid");
+        $citys = $this->cityModel->getAll("countryid=$countryid AND provinceid=$provinceid");
+        $this->ajax(true,"",$citys);
+    }
     
 
 }

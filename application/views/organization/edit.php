@@ -117,7 +117,7 @@
 				    {
 					    if(i==0){
 					    		$("#provinceid").append("<option value="+datas[i].id+" selected='selected'>"+datas[i].name+"</option>");
-					    		fillCitys(v,data[i].id);
+					    		fillCitys(v,datas[i].id);
 						}else{
 							$("#provinceid").append("<option value="+datas[i].id+">"+datas[i].name+"</option>");
 						}
@@ -145,7 +145,7 @@
 			  $("#cityid").empty();
 			  jsonResp=eval("("+data+")");
 		         datas = jsonResp['data'];
-			  for(var i = 0; i < data.length; i++)
+			  for(var i = 0; i < datas.length; i++)
 			    {
 				  $("#cityid").append("<option value="+datas[i].id+">"+datas[i].name+"</option>");
 			    }

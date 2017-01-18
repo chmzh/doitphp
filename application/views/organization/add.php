@@ -45,7 +45,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>创办于</label>
-                                            <input class="form-control" name="startDate" placeholder="创办年月">
+                                            <input class="form-control" name="startDate" placeholder="创办年月" readonly class="form_datetime">
                                             <p class="help-block"></p>
                                         </div>
                                         <div class="form-group">
@@ -55,13 +55,13 @@
                                         </div>
                                          <div class="form-group">
                                             <label>适合年龄</label>
-                                            <input class="form-control" name="minage" placeholder="最小年龄">
-                                            <input class="form-control" name="maxage" placeholder="最大年龄">
+                                            <input class="form-control" name="minage" placeholder="最小年龄" value="0">
+                                            <input class="form-control" name="maxage" placeholder="最大年龄" value="1">
                                             <p class="help-block"></p>
                                         </div>  
                                         <div class="form-group">
                                             <label>分店数</label>
-                                            <input class="form-control" name="shops" placeholder="分店数">
+                                            <input class="form-control" name="shops" placeholder="分店数" value="1">
                                             <p class="help-block"></p>
                                         </div>    
                                         <div class="form-group">
@@ -94,11 +94,18 @@
 
 
     <!-- jQuery -->
-    <script src="<?php echo $baseUrl;?>assets/jquery/jquery.min.js"></script>
-
+    <script src="<?php echo $baseUrl;?>/assets/jquery/jquery-3.1.1.min.js"></script>
+    <script
+		src="<?php echo $baseUrl;?>/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script
+		src="<?php echo $baseUrl;?>/assets/bower_components/bootstrap-datepicker/js/bootstrap-datetimepicker.min.js"></script>
+	<script
+		src="<?php echo $baseUrl;?>/assets/bower_components/bootstrap-datepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 	
 	<script type="text/javascript">
+	
 	$(document).ready(function(){
+		$('.form_datetime').datetimepicker({minView: "month",language: 'zh-CN',format: 'yyyy-mm-dd'});
 		  $("#countryid").change(function(){
 			  var v = $(this).children('option:selected').val(); 
 			  $.post("/province/json",
@@ -116,7 +123,7 @@
 				    {
 					    if(i==0){
 					    		$("#provinceid").append("<option value="+datas[i].id+" selected='selected'>"+datas[i].name+"</option>");
-					    		fillCitys(v,data[i].id);
+					    		fillCitys(v,datas[i].id);
 						}else{
 							$("#provinceid").append("<option value="+datas[i].id+">"+datas[i].name+"</option>");
 						}
@@ -144,7 +151,7 @@
 			  $("#cityid").empty();
 			  jsonResp=eval("("+data+")");
 		         datas = jsonResp['data'];
-			  for(var i = 0; i < data.length; i++)
+			  for(var i = 0; i < datas.length; i++)
 			    {
 				  $("#cityid").append("<option value="+datas[i].id+">"+datas[i].name+"</option>");
 			    }
