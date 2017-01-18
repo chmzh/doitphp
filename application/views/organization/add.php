@@ -45,7 +45,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>创办于</label>
-                                            <input class="form-control" name="startDate" value="2017-01-01" readonly class="form_datetime">
+                                            <input class="form-control" id="startDate" name="startDate" value="2017-01-01" readonly>
                                             <p class="help-block"></p>
                                         </div>
                                         <div class="form-group">
@@ -103,10 +103,9 @@
 		src="<?php echo $baseUrl;?>/assets/bower_components/bootstrap-datepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 	
 	<script type="text/javascript">
-	
+	$('#startDate').datetimepicker({minView: "month",language: 'zh-CN',format: 'yyyy-mm-dd',autoclose: 1,});
 	$(document).ready(function(){
-		$('.form_datetime').datetimepicker({minView: "month",language: 'zh-CN',format: 'yyyy-mm-dd'});
-		//alert($('.form_datetime').datetimepicker({minView: "month",language: 'zh-CN',format: 'yyyy-mm-dd'}));
+
 		  $("#countryid").change(function(){
 			  var v = $(this).children('option:selected').val(); 
 			  $.post("/province/json",
