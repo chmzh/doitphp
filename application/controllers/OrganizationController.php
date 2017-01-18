@@ -102,12 +102,12 @@ class OrganizationController extends FormController {
         $origin = $this->post("origin");
         $shops = $this->post("shops");
         $content = $this->post("content");
-        $pdate = time();
+        $pdate = date('Y-m-d H:i:s',time());
         
         $datas['countryid'] = $countryid;
         $datas['provinceid'] = $provinceid;
         $datas['cityid'] = $cityid;
-        $datas['orgtypeid'] = $orgtypeid;
+        $datas['orgtypeid'] = implode($orgtypeid, ",");
         $datas['minage'] = $minage;
         $datas['maxage'] = $maxage;
         $datas['name'] = $name;
@@ -130,8 +130,21 @@ class OrganizationController extends FormController {
     protected function editForm()
     {
         $id = $this->get("id");
-        $country = $this->orgModel->getOne("id=$id");
-        $this->assign("country",$country);
+        $data = $this->orgModel->getOne("id=$id");
+        $countrys = $this->countryModel->getAll();
+        $provinces = $this->provinceModel->getAll("countryid=".$countrys[0]['id']);
+        $citys = $this->cityModel->getAll("provinceid=".$provinces[0]['id']);
+        $orgtypes = $this->orgtypeModel->getAll();
+        $this->assign("countrys",$countrys);
+        $this->assign("provinces",$provinces);
+        $this->assign("citys",$citys);
+        $this->assign("orgtypes",$orgtypes);
+        $this->assign("data",$data);
+        $orgtypeids = [];
+        if($data['orgtypeid']){
+            $orgtypeids = explode(',', $data['orgtypeid']);
+        }
+        $this->assign("orgtypeids",$orgtypeids);
         $this->display();
         
     }
