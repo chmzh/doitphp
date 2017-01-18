@@ -84,7 +84,7 @@
 	<script type="text/javascript">
 
 	function reupload(){
-	    $("#uploadframe").html("<iframe src='/upload/index' frameborder='0' height='30px' scrolling='no'></iframe>");
+	    $("#uploadframe").html("<iframe src='/upload/index' frameborder='0' height='35px' scrolling='no' width='100%'></iframe>");
 	}
 	
 	$(document).ready(function(){

@@ -66,7 +66,7 @@
 		src="<?php echo $baseUrl;?>/assets/bower_components/bootstrap-datepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 	<script type="text/javascript">
 	function reupload(){
-	    $("#uploadframe").html("<iframe src='/upload/index' frameborder='0' height='30px' scrolling='no'></iframe>");
+	    $("#uploadframe").html("<iframe src='/upload/index' frameborder='0' height='35px' scrolling='no' width='100%'></iframe>");
 	}
 	</script>
 
