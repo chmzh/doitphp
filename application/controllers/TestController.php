@@ -38,12 +38,14 @@ class TestController extends Controller {
     }
     
     public function indexAction(){
-        $fileds = "id,sdate,edate,address,participants,title,content,imgsrc";
+        $fileds = "'id', 'categoryid','name','imgsrc','price','des'";
         $arr = explode(',', $fileds);
         foreach ($arr as $k=>$v){
+            $v = str_replace("'", "", $v);
             echo '$'.$v.' = '.'$this->post(\''.$v.'\');'.'<br>';
         }
         foreach ($arr as $k=>$v){
+            $v = str_replace("'", "", $v);
             echo '$datas['.$v.'] = $'.$v.';<br>';
         }
     }
