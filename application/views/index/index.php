@@ -162,23 +162,28 @@
 	<!-- Custom Theme JavaScript -->
 	<script src="<?php echo $baseUrl;?>/assets/dist/js/sb-admin-2.js"></script>
 	<script type="text/javascript">
+
+	function size1(){
+		$('#page-wrapper').css("margin-left",
+				$('.sidebar-nav').width() );
+		$('#page-wrapper').css(
+				"width",
+				($(window).width()
+						- $('.sidebar-nav').width() - 3)
+						);
+		$('#page-wrapper')
+				.css(
+						"height",
+						($(window).height() - $('.navbar')
+								.height())
+								);
+	}
+	
 		$(document)
 				.ready(
 						function() {
-							$('#page-wrapper').css("margin-left",
-									$('.sidebar-nav').width() );
-							$('#page-wrapper').css(
-									"width",
-									($(window).width()
-											- $('.sidebar-nav').width() - 3)
-											);
-							$('#page-wrapper')
-									.css(
-											"height",
-											($(window).height() - $('.navbar')
-													.height())
-													);
-
+							
+							size1();
 							$("#allgames").hover(function() {
 								$("#games").show();
 							}, function() {
@@ -190,10 +195,15 @@
 							}, function() {
 								$(this).hide();
 							});
-
+							  
 							
 						});
-		
+
+		$(window).on("resize",function(){
+			size1();
+			console.log($('#page-wrapper').css("height"));
+		});
+		//console.log($('#page-wrapper').css("height"));
 	</script>
 
 </body>
