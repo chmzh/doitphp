@@ -16,11 +16,12 @@ class TestController extends Controller {
         ));
         return true;
     }
-    
+    public function fixedAction(){
+        
+        $this->display();
+    }
     public function index2Action(){
-        $user = $this->model("User");
-        $u = $user->getOne("uname='cndw'");
-        $this->_getPowerMenu();
+       
         $this->display();
     }
     
