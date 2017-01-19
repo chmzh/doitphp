@@ -16,6 +16,14 @@ class TestController extends Controller {
         ));
         return true;
     }
+    
+    public function navAction(){
+        $this->display();
+    }
+    public function navleftAction(){
+        $this->display();
+    }
+    
     public function dateAction() {
 		
         $this->display();

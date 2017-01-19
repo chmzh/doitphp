@@ -355,4 +355,9 @@ class File {
 
         return round($bytes, $dec) . ' ' . $unitPow[$pos];
     }
+    public static function get_extension($file)
+    {
+        $info = pathinfo($file);
+        return $info['extension'];
+    }
 }

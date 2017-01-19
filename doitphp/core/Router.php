@@ -36,7 +36,7 @@ abstract class Router {
 
         //当访问网址的格式时。如：http://yourdomain/index.php?router=member/list/index&id=23
         if (URL_FORMAT == Configure::GET_FORMAT) {
-
+            
             if (isset($_GET[self::$_routerVar]) && $_GET[self::$_routerVar] == true) {
 
                 $routerArray = explode(URL_SEGEMENTATION, trim($_GET[self::$_routerVar], URL_SEGEMENTATION));
