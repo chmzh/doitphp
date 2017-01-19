@@ -17,6 +17,13 @@ class TestController extends Controller {
         return true;
     }
     
+    public function index2Action(){
+        $user = $this->model("User");
+        $u = $user->getOne("uname='cndw'");
+        $this->_getPowerMenu();
+        $this->display();
+    }
+    
     public function navAction(){
         $this->display();
     }

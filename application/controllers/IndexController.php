@@ -24,4 +24,16 @@ class IndexController extends AuthController {
         $this->display();
     }
 
+    /**
+     * 首页
+     *
+     * @access public
+     * @return void
+     */
+    public function index2Action() {
+        $user = $this->model("User");
+        $u = $user->getOne("uname='cndw'");
+        $this->_getPowerMenu();
+        $this->display();
+    }
 }
