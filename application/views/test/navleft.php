@@ -21,10 +21,10 @@
 
     <div role="main" class="main">
       <a href="#nav" class="nav-toggle">Menu</a>
-      <iframe id="mainFrame" name="mainFrame" src="" width="100%"
-				height="100%" frameborder="0"></iframe>
+      
     </div>
-
+<iframe id="mainFrame" name="mainFrame" src="http://www.baidu.com" width="100%"
+				height="100%" frameborder="0"></iframe>
     <script>
       var navigation = responsiveNav("foo", {customToggle: ".nav-toggle"});
     </script>
