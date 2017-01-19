@@ -47,7 +47,7 @@ class AuthController extends Controller {
 	    $controller = Doit::getControllerName();
 	    $action = Doit::getActionName();
 	    
-	    $ignor = [['ctr'=>'index','action'=>'index']];
+	    $ignor = [['ctr'=>'index','action'=>'index'],['ctr'=>'index','action'=>'index2']];
 	    foreach ($ignor as $k=>$v){
 	        if($v['ctr'] == $controller && $v['action']==$action){
 	            return;
