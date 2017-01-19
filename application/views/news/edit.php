@@ -42,7 +42,7 @@
 									</select>
 									<input type="text" name="imgsrc" id="imgsrc" value="<?php echo $news['imgsrc'];?>"><span onclick="reupload()" style="cursor:pointer">重新上传</span>
 									<div class="form-group" id="uploadframe">
-										<iframe src="/upload/index" frameborder="0" height="30px" scrolling="no"></iframe>
+										<iframe src="/upload/index" frameborder="0" height="35px" scrolling="no" width="100%"></iframe>
 									</div>
 									<div class="form-group">
                                             <label>导读</label>
@@ -84,7 +84,7 @@
 	<script type="text/javascript">
 
 	function reupload(){
-	    $("#uploadframe").html("<iframe src='/upload/index' frameborder='0' height='30px' scrolling='no'></iframe>");
+	    $("#uploadframe").html("<iframe src='/upload/index' frameborder='0' height='35px' scrolling='no' width='100%'></iframe>");
 	}
 	
 	$(document).ready(function(){

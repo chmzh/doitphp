@@ -33,7 +33,7 @@
                                         </div>
 									<input type="text" name="imgsrc" id="imgsrc" value="<?php echo $activity['imgsrc']?>"><span onclick="reupload()" style="cursor:pointer">重新上传</span>
 									<div class="form-group" id="uploadframe">
-										<iframe src="/upload/index" frameborder="0" height="30px" scrolling="no"></iframe>
+										<iframe src="/upload/index" frameborder="0" height="35px" scrolling="no" width="100%"></iframe>
 									</div>
 									
                                         <div class="form-group">
@@ -75,7 +75,7 @@
 		src="<?php echo $baseUrl;?>/assets/bower_components/bootstrap-datepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 	<script type="text/javascript">
 	function reupload(){
-	    $("#uploadframe").html("<iframe src='/upload/index' frameborder='0' height='30px' scrolling='no'></iframe>");
+	    $("#uploadframe").html("<iframe src='/upload/index' frameborder='0' height='35px' scrolling='no' width='100%'></iframe>");
 	}
 		$('.form_datetime').datetimepicker({minView: "month",language: 'zh-CN',format: 'yyyy-mm-dd',autoclose: 1});
 		$('.form_datetime1').datetimepicker({minView: "month",language: 'zh-CN',format: 'yyyy-mm-dd',autoclose: 1});
