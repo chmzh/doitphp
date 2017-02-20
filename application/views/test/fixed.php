@@ -1,16 +1,17 @@
- <html> 
-<head> 
-<title>位置固定(</title> 
+
+<html>
+<head>
+<title>位置固定(</title>
 <script src="/assets/jquery/jquery-3.1.1.min.js"></script>
 
-<style type="text/css"> 
-.fixed_div{ 
-position:fixed; 
-left:200px; 
-bottom:20px; 
-width:400px; 
+<style type="text/css">
+.fixed_div {
+	position: fixed;
+	left: 200px;
+	bottom: 20px;
+	width: 400px;
 }
-</style> 
+</style>
 <script type="text/javascript">
 $(function(){
 //获取要定位元素距离浏览器顶部的距离
@@ -29,14 +30,15 @@ $(".nav").css({"position":"static"});
 })
 })
 </script>
-</head> 
+</head>
 <body>
-<div class="top">top</div>
-<p> </p>
-<hr>
-<div class="nav">topnav</div>
+	<div class="top">top</div>
+	<p></p>
+	<hr>
+	<div class="nav">topnav</div>
 
-<div class="fixed_div" style="border:1px solid #200888;">content, I'm content</div> 
-<div style="height:8888px;"></div> 
-</body> 
-</html> 
+	<div class="fixed_div" style="border: 1px solid #200888;">content, I'm
+		content</div>
+	<div style="height: 8888px;"></div>
+</body>
+</html>

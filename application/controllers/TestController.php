@@ -40,6 +40,11 @@ class TestController extends Controller {
         
         $this->display();
     }
+    
+    public function webuploaderAction(){
+        $this->display();
+    }
+    
     public function uploadAction(){
         $fileObj  = $this->instance('FileUpload');
         $extension = File::get_extension($_FILES['upload']['name']);
@@ -64,5 +69,9 @@ class TestController extends Controller {
             $v = str_replace("'", "", $v);
             echo '$datas['.$v.'] = $'.$v.';<br>';
         }
+    }
+    
+    public function websocketAction(){
+        $this->display();
     }
 }
